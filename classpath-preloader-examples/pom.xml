@@ -26,11 +26,11 @@
     <parent>
         <artifactId>classpath-preloader-parent</artifactId>
         <groupId>de.wicketbuch.extensions</groupId>
-        <version>0.0.1.wicket7-SNAPSHOT</version>
+        <version>0.0.2.wicket7-SNAPSHOT</version>
     </parent>
     <artifactId>classpath-preloader-examples</artifactId>
     <packaging>war</packaging>
-    <version>0.0.1.wicket7-SNAPSHOT</version>
+    <version>0.0.2.wicket7-SNAPSHOT</version>
     <name>classpath-preloader-examples</name>
 
     <licenses>
