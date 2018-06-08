@@ -1,6 +1,7 @@
 /**
- * Copyright (C) 2018 Carl-Eric Menzel <cmenzel@wicketbuch.de>
- * and possibly other appendablerepeater contributors.
+ * Copyright (C) 2018 Carl-Eric Menzel <cmenzel@wicketbuch.de>,
+ * Antonia Schmalstieg <antonia.schmalstieg@codecentric.de>,
+ * and possibly other classpathpreloader contributors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +17,7 @@
  */
 package de.wicketbuch.extensions.classpathpreloader.examples;
 
-import de.wicketbuch.extensions.classpathpreloader.ClasspathPreloader;
+import de.wicketbuch.extensions.classpathpreloader.ClassPathPreloader;
 import org.apache.wicket.Page;
 import org.apache.wicket.protocol.http.WebApplication;
 
@@ -36,6 +37,6 @@ public class ClasspathPreloaderApplication extends WebApplication
 	{
 		super.init();
 		getMarkupSettings().setAutomaticLinking(true);
-		ClasspathPreloader.configure(this);
+		ClassPathPreloader.configure(this);
 	}
 }

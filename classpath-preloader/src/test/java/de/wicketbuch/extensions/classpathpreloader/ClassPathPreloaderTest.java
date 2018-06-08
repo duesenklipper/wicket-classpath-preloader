@@ -1,6 +1,7 @@
 /**
- * Copyright (C) 2018 Carl-Eric Menzel <cmenzel@wicketbuch.de>
- * and possibly other appendablerepeater contributors.
+ * Copyright (C) 2018 Carl-Eric Menzel <cmenzel@wicketbuch.de>,
+ * Antonia Schmalstieg <antonia.schmalstieg@codecentric.de>,
+ * and possibly other classpathpreloader contributors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +19,6 @@ package de.wicketbuch.extensions.classpathpreloader;
 
 import org.apache.wicket.Application;
 import org.apache.wicket.core.util.resource.ClassPathResourceFinder;
-import org.apache.wicket.util.file.IResourceFinder;
 import org.apache.wicket.util.resource.IResourceStream;
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.After;
@@ -27,15 +27,15 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class ClasspathPreloaderTest {
+public class ClassPathPreloaderTest {
 
     private WicketTester tester;
-    private ClasspathPreloader underTest;
+    private ClassPathPreloader underTest;
 
     @Before
     public void setUp() throws Exception {
         tester = new WicketTester();
-        underTest = ClasspathPreloader.configure(tester.getApplication());
+        underTest = ClassPathPreloader.configure(tester.getApplication());
     }
 
     @After
@@ -46,14 +46,14 @@ public class ClasspathPreloaderTest {
 
     @Test
     public void findsTestClassWithoutPrefix() {
-        final ClasspathPreloader.PrescanningClasspathResourceFinder finder = underTest.new PrescanningClasspathResourceFinder(
+        final ClassPathPreloader.PrescanningClasspathResourceFinder finder = underTest.new PrescanningClasspathResourceFinder(
                 new ClassPathResourceFinder(""));
-        assertNotNull(finder.find(Application.class, "de/wicketbuch/extensions/classpathpreloader/ClasspathPreloaderTest.class"));
+        assertNotNull(finder.find(Application.class, "de/wicketbuch/extensions/classpathpreloader/ClassPathPreloaderTest.class"));
     }
 
     @Test
     public void doesNotAttemptToLoadNonexistentFile() {
-        final ClasspathPreloader.PrescanningClasspathResourceFinder finder = underTest.new PrescanningClasspathResourceFinder(new ClassPathResourceFinder("") {
+        final ClassPathPreloader.PrescanningClasspathResourceFinder finder = underTest.new PrescanningClasspathResourceFinder(new ClassPathResourceFinder("") {
             @Override
             public IResourceStream find(Class<?> clazz, String pathname) {
                 throw new AssertionError("should not have called this");
@@ -64,21 +64,21 @@ public class ClasspathPreloaderTest {
 
     @Test
     public void findsPropertiesInDependencyJar() {
-        final ClasspathPreloader.PrescanningClasspathResourceFinder finder = underTest.new PrescanningClasspathResourceFinder(
+        final ClassPathPreloader.PrescanningClasspathResourceFinder finder = underTest.new PrescanningClasspathResourceFinder(
                 new ClassPathResourceFinder(""));
         assertNotNull(finder.find(Application.class, "org/apache/wicket/Application.properties"));
     }
 
     @Test
     public void findsPropertiesWithPrefixResourceFinder() {
-        final ClasspathPreloader.PrescanningClasspathResourceFinder finder = underTest.new PrescanningClasspathResourceFinder(
+        final ClassPathPreloader.PrescanningClasspathResourceFinder finder = underTest.new PrescanningClasspathResourceFinder(
                 new ClassPathResourceFinder("subfolder"));
         assertNotNull(finder.find(Application.class, "test.properties"));
     }
 
     @Test
     public void findsPropertiesWithPrefixInDependencyJar() {
-        final ClasspathPreloader.PrescanningClasspathResourceFinder finder = underTest.new PrescanningClasspathResourceFinder(
+        final ClassPathPreloader.PrescanningClasspathResourceFinder finder = underTest.new PrescanningClasspathResourceFinder(
                 new ClassPathResourceFinder("META-INF"));
         assertNotNull(finder.find(Application.class, "services/org.apache.wicket.IInitializer"));
     }
