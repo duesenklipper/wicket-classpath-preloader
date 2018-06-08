@@ -1,4 +1,4 @@
-**Current version**: unreleased
+**Current version**: 0.0.1.wicket{7|8}
 
 # Classpath prescanning to accelerate Wicket resource loading
 
@@ -31,7 +31,7 @@ use it only in `DEPLOYMENT` mode.
     <dependency>
         <groupId>de.wicketbuch.extensions</groupId>
         <artifactId>classpath-preloader</artifactId>
-        <version>not yet released</version>
+        <version>0.0.1.wicket8</version>
     </dependency>
 
 Make sure you choose the correct version for the version of Wicket you are
