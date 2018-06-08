@@ -56,7 +56,7 @@ import java.util.ListIterator;
  * <p>
  * To conserve memory and still be fast, we use a {@link BloomFilter} instead of a List of strings to store which paths exist on the classpath. A bloom filter
  * is set up to expect a number of elements and provide an acceptable false positive rate up to that limit. This implementation is currently set to expect up
- * to 1,000,000 classpath entries with a false positive probability of 0.1. This leads to memory consumption of roughly 600KB, regardless of how many entries
+ * to 1,000,000 classpath entries with a false positive probability of 0.01. This leads to memory consumption of roughly 600KB, regardless of how many entries
  * are stored. A false positive here means that a non-existing path is mistakenly thought to exist and therefore the underlying
  * {@link ClassPathResourceFinder} will try to load it. Bloom filters do not produce false negatives, so no actually existing path will ever be denied.
  */
@@ -71,7 +71,7 @@ public class ClassPathPreloader {
         }
     };
 
-    private BloomFilter<String> knownPaths = BloomFilter.create(FUNNEL, BLOOM_SIZE, 0.1);
+    private BloomFilter<String> knownPaths = BloomFilter.create(FUNNEL, BLOOM_SIZE, 0.01);
 
     private int numberOfFoundPaths = 0;
 
