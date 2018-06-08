@@ -25,7 +25,7 @@
     <parent>
         <groupId>de.wicketbuch.extensions</groupId>
         <artifactId>classpath-preloader-parent</artifactId>
-        <version>0.0.1.wicket7-SNAPSHOT</version>
+        <version>0.0.1.wicket8-SNAPSHOT</version>
     </parent>
     <artifactId>classpath-preloader</artifactId>
     <packaging>jar</packaging>

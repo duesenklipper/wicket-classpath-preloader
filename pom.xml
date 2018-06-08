@@ -25,7 +25,7 @@
 
     <groupId>de.wicketbuch.extensions</groupId>
     <artifactId>classpath-preloader-parent</artifactId>
-    <version>0.0.1.wicket7-SNAPSHOT</version>
+    <version>0.0.1.wicket8-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <parent>
@@ -53,10 +53,10 @@
         </developer>
     </developers>
     <properties>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>${maven.compiler.target}</maven.compiler.source>
         <main.basedir>${project.basedir}</main.basedir>
-        <wicket.version>7.10.0</wicket.version>
+        <wicket.version>8.0.0</wicket.version>
         <jetty9.version>9.2.13.v20150730</jetty9.version>
         <slf4j.version>1.7.21</slf4j.version>
         <clirr.compare.version>1.0.0.wicket7</clirr.compare.version>
@@ -109,7 +109,7 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>25.1-android</version>
+                <version>25.1-jre</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
